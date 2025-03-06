@@ -60,10 +60,6 @@ export async function POST(req: NextRequest) {
 }
 
 export const getSignedUrl = async (fileName: string): Promise<string> => {
-  const storage = new Storage({
-    projectId: "qiyin-434704",
-    keyFilename: "static/qiyin-434704-a73c52495c76.json",
-  });
   const bucket = storage.bucket(bucketName);
   const file = bucket.file(fileName);
 
