@@ -25,7 +25,6 @@ export async function POST(req: NextRequest) {
     if (file.size < 1) {
       return NextResponse.json({ error: "File is empty." }, { status: 400 });
     }
-    const buffer = Buffer.from(await file.arrayBuffer());
 
     const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
     const extension =
@@ -42,7 +41,6 @@ export async function POST(req: NextRequest) {
       body: file,
       headers: { "Content-Type": "application/octet-stream" },
     });
-    console.log("res", response);
     if (!response.ok) {
       return NextResponse.json(
         { error: "Something went wrong" },
