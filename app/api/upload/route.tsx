@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Storage } from "@google-cloud/storage";
 import mime from "mime";
-import * as dateFn from "date-fns";
 
 // 初始化 Google Cloud Storage 客户端
 const storage = new Storage({
